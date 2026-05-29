@@ -1,0 +1,137 @@
+.graph-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(12, 20, 37, 0.62);
+  backdrop-filter: blur(8px);
+}
+
+.graph-popup-card {
+  width: min(100%, 760px);
+  border-radius: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.3);
+  overflow: hidden;
+  animation: graphPopupEnter 160ms ease-out;
+}
+
+.graph-popup-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px 18px;
+  border-bottom: 1px solid #e8eef7;
+}
+
+.graph-popup-kicker {
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4184f3;
+}
+
+.graph-popup-header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: #162033;
+}
+
+.graph-popup-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 999px;
+  background: #eef3fb;
+  color: #415168;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.graph-popup-close:hover {
+  transform: scale(1.05);
+  background: #e4ecf9;
+}
+
+.graph-popup-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px 24px 0;
+}
+
+.graph-popup-summary div {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #f7faff;
+  border: 1px solid #e4ecf7;
+}
+
+.graph-popup-summary span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #7a8799;
+}
+
+.graph-popup-summary strong {
+  font-size: 0.95rem;
+  color: #162033;
+}
+
+.graph-popup-chart {
+  height: 380px;
+  padding: 16px 20px 22px;
+}
+
+@keyframes graphPopupEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 720px) {
+  .graph-popup-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-popup-chart {
+    height: 300px;
+  }
+}
+
+@media (max-width: 520px) {
+  .graph-popup-card {
+    border-radius: 18px;
+  }
+
+  .graph-popup-header,
+  .graph-popup-summary {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .graph-popup-chart {
+    padding-left: 12px;
+    padding-right: 12px;
+    height: 260px;
+  }
+}

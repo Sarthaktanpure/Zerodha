@@ -1,0 +1,176 @@
+.sell-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(30, 12, 12, 0.58);
+  backdrop-filter: blur(8px);
+}
+
+.sell-popup-card {
+  width: min(100%, 460px);
+  border-radius: 22px;
+  border: 1px solid rgba(251, 146, 60, 0.18);
+  background: linear-gradient(180deg, #fffdfb 0%, #fff7f2 100%);
+  box-shadow: 0 30px 80px rgba(127, 29, 29, 0.24);
+  overflow: hidden;
+  animation: sellPopupEnter 160ms ease-out;
+}
+
+.sell-popup-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px 18px;
+  border-bottom: 1px solid #fae5da;
+  background: linear-gradient(135deg, #ff5722 0%, #ef4444 100%);
+}
+
+.sell-popup-kicker {
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.sell-popup-header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.sell-popup-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.sell-popup-close:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.sell-popup-form {
+  display: grid;
+  gap: 16px;
+  padding: 22px 24px 24px;
+}
+
+.sell-popup-field {
+  display: grid;
+  gap: 8px;
+}
+
+.sell-popup-field span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #7c3f34;
+}
+
+.sell-popup-field input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #f3d5c8;
+  border-radius: 14px;
+  padding: 0 14px;
+  font-size: 0.98rem;
+  color: #3a1e1b;
+  background: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sell-popup-field input:focus {
+  outline: none;
+  border-color: #ff5722;
+  box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.12);
+}
+
+.sell-popup-margin {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #8a6a61;
+}
+
+.sell-popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.sell-popup-button {
+  min-width: 110px;
+  min-height: 44px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.sell-popup-button:hover {
+  transform: translateY(-1px);
+}
+
+.sell-popup-button-secondary {
+  background: #f6ebe7;
+  color: #7c3f34;
+}
+
+.sell-popup-button-primary {
+  background: linear-gradient(135deg, #ff5722 0%, #ef4444 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(255, 87, 34, 0.24);
+}
+
+.sell-popup-button-primary:hover {
+  box-shadow: 0 12px 28px rgba(255, 87, 34, 0.3);
+}
+
+@keyframes sellPopupEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 520px) {
+  .sell-popup-card {
+    border-radius: 18px;
+  }
+
+  .sell-popup-header,
+  .sell-popup-form {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .sell-popup-actions {
+    flex-direction: column-reverse;
+  }
+
+  .sell-popup-button {
+    width: 100%;
+  }
+}

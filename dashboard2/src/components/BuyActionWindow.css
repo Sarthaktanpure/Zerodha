@@ -1,0 +1,247 @@
+.buy-window-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(10, 16, 28, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+.buy-window-card {
+  --radius: 18px;
+  width: min(100%, 500px);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  position: relative;
+  cursor: default;
+  box-sizing: border-box;
+  z-index: 100;
+  border-radius: var(--radius);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.28);
+  overflow: hidden;
+  animation: buyWindowEnter 160ms ease-out;
+}
+
+.dragging {
+  opacity: 0;
+}
+
+.buy-window-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px 18px;
+  background: linear-gradient(135deg, #4184f3 0%, #2c6ce3 100%);
+}
+
+.buy-window-kicker {
+  margin: 0 0 4px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.buy-window-header h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.buy-window-header h3 span {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.buy-window-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.buy-window-close:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.regular-order {
+  padding: 22px 24px 18px;
+  background-color: #fff;
+}
+
+.regular-order label {
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.order-validity {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-validity label span {
+  color: rgb(190, 190, 190);
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 2px;
+}
+
+.inputs fieldset {
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid #d7e1ee;
+  border-radius: 14px;
+  margin: 0;
+  padding: 0 0 10px;
+  background: #f8fbff;
+}
+
+.inputs fieldset legend {
+  margin-left: 12px;
+  padding: 0 4px;
+  font-size: 0.8rem;
+  color: #52607a;
+}
+
+.inputs fieldset:last-of-type legend {
+  color: #52607a;
+}
+
+.inputs fieldset input {
+  width: 100%;
+  border: none;
+  min-height: 38px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: #162033;
+  background: transparent;
+}
+
+.inputs fieldset input:focus {
+  outline: none;
+}
+
+.options {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.options span {
+  color: #4184f3;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.buttons {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px 22px;
+  border-top: 1px solid #eef2f7;
+  background: #fafcff;
+}
+
+.buttons span {
+  font-size: 0.8rem;
+  color: #52607a;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  color: #fff;
+  margin-right: 2px;
+  margin-left: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+}
+
+.btn-grey {
+  background: #d4d4d4;
+  color: #666666;
+}
+
+.btn-blue {
+  background: linear-gradient(135deg, #4184f3 0%, #2c6ce3 100%);
+}
+
+.btn-blue:hover {
+  background: linear-gradient(135deg, #5a94f6 0%, #3d78eb 100%);
+}
+
+.btn-grey:hover {
+  background: #9b9b9b;
+  color: #fff;
+}
+
+@keyframes buyWindowEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 560px) {
+  .buy-window-header,
+  .regular-order,
+  .buttons {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buttons div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 0;
+  }
+}
